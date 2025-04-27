@@ -3,6 +3,7 @@ from models.client import Client
 from models.dish import Dish
 from services.simple_order_factory import SimpleOrderFactory
 
+
 class TestClient(unittest.TestCase):
     def test_client_name_update(self):
         client = Client("Анастасія")

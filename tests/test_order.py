@@ -5,6 +5,7 @@ from services.kitchen_notifier import KitchenNotifier
 from models.order import Order
 from mock import Mock
 
+
 class TestOrder(unittest.TestCase):
 
     def test_place_order(self):
