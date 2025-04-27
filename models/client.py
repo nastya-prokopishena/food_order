@@ -5,6 +5,13 @@ from interfaces.order_factory import OrderFactory
 
 class Client:
     def __init__(self, name: str):
-        pass
+        if not name:
+            raise ValueError("Name cannot be empty.")
+        self.name = name
+
     def make_order(self, dishes: List[Dish], factory: OrderFactory):
-        pass
+        if not dishes:
+            raise ValueError("Dish list cannot be empty.")
+
+        order = factory.create_order(self, dishes)
+        return order

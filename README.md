@@ -48,6 +48,7 @@
 ![Результат тестів до реалізації логіки методів](tests_result/test_order_before_implementation_of_functionality.png)
 
 **Результат тестів після реалізації логіки методів**
+![Результат тестів після реалізації логіки методів](tests_result/test_order_after_implementation_of_functionality.png)
 
 #### test_menu.py
 - **test_add_dish_to_menu**: Перевіряє додавання страви до меню та її наявність у списку.
@@ -60,6 +61,7 @@
 ![Результат тестів до реалізації логіки методів](tests_result/test_menu_before_implementation_of_functionality.png)
 
 **Результат тестів після реалізації логіки методів**
+![Результат тестів після реалізації логіки методів](tests_result/test_menu_after_implementation_of_functionality.png)
 
 
 #### test_dish.py
@@ -73,6 +75,7 @@
 ![Результат тестів до реалізації логіки методів](tests_result/test_dish_before_implementation_of_functionality.png)
 
 **Результат тестів після реалізації логіки методів**
+![Результат тестів після реалізації логіки методів](tests_result/test_dish_after_implementation_of_functionality.png)
 
 
 #### test_simple_order_factory.py
@@ -83,7 +86,7 @@
 ![Результат тестів до реалізації логіки методів](tests_result/test_simple_order_factory_before_implementation_of_functionality.png)
 
 **Результат тестів після реалізації логіки методів**
-
+![Результат тестів після реалізації логіки методів](tests_result/test_simple_order_factory_after_implementation_of_functionality.png)
 
 #### test_client.py
 - **test_client_name_update**: Перевіряє створення клієнта з правильним ім’ям.
@@ -96,6 +99,7 @@
 ![Результат тестів до реалізації логіки методів](tests_result/test_client_before_implementation_of_functionality.png)
 
 **Результат тестів після реалізації логіки методів**
+![Результат тестів після реалізації логіки методів](tests_result/test_client_after_implementation_of_functionality.png)
 
 
 #### test_notifier.py
@@ -107,7 +111,7 @@
 ![Результат тестів до реалізації логіки методів](tests_result/test_notifier_before_implementation_of_functionality.png)
 
 **Результат тестів після реалізації логіки методів**
-
+![Результат тестів після реалізації логіки методів](tests_result/test_notifier_after_implementation_of_functionality.png)
 
 #### test_order_factory.py
 - **test_create_order**: Перевіряє створення замовлення через фабрику з правильним клієнтом та стравою.
@@ -119,3 +123,4 @@
 ![Результат тестів до реалізації логіки методів](tests_result/test_order_factory_before_implementation_of_functionality.png)
 
 **Результат тестів після реалізації логіки методів**
+![Результат тестів після реалізації логіки методів](tests_result/test_order_factory_after_implementation_of_functionality.png)

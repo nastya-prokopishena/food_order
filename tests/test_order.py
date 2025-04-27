@@ -9,7 +9,6 @@ from mock import Mock
 class TestOrder(unittest.TestCase):
 
     def test_place_order(self):
-        # Create a mock notifier
         notifier = Mock(spec=KitchenNotifier)
         client = Client(name="Валерія")
         dish = Dish(name="Піца 4 сири", price=290.0)

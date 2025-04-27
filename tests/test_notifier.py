@@ -11,7 +11,7 @@ class TestNotifier(unittest.TestCase):
 
     def test_notify(self):
         notifier = KitchenNotifier()
-        notifier.notify = MagicMock()
+        notifier.notify = MagicMock(return_value=None)
         client = Client(name="Анастасія")
         dish = Dish(name="Піца Маргарита", price=210.0)
         order = Order(dishes=[dish], client=client, notifier=notifier)

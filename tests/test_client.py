@@ -2,7 +2,7 @@ import unittest
 from models.client import Client
 from models.dish import Dish
 from services.simple_order_factory import SimpleOrderFactory
-
+from services.kitchen_notifier import KitchenNotifier
 
 class TestClient(unittest.TestCase):
     def test_client_name_update(self):
@@ -12,7 +12,8 @@ class TestClient(unittest.TestCase):
     def test_make_order(self):
         client = Client(name="Анастасія")
         dish = Dish(name="Піца Маргарита", price=210.0)
-        factory = SimpleOrderFactory(notifier=None)
+        notifier = KitchenNotifier()
+        factory = SimpleOrderFactory(notifier=notifier)
         order = client.make_order([dish], factory)
         self.assertIsNotNone(order)
         self.assertEqual(order.client.name, "Анастасія")
