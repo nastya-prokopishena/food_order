@@ -22,3 +22,14 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(len(dishes), 2)
         self.assertIn(dish1, dishes)
         self.assertIn(dish2, dishes)
+
+    def test_get_empty_menu(self):
+        menu = Menu()
+        dishes = menu.get_dishes()
+        self.assertEqual(len(dishes), 0)
+        self.assertEqual(dishes, [])
+
+    def test_add_invalid_dish(self):
+        menu = Menu()
+        with self.assertRaises(TypeError):
+            menu.add_dish("Not a Dish")

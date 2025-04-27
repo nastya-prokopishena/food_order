@@ -16,3 +16,13 @@ class TestClient(unittest.TestCase):
         self.assertIsNotNone(order)
         self.assertEqual(order.client.name, "Анастасія")
         self.assertIn(dish, order.dishes)
+
+    def test_client_empty_name(self):
+        with self.assertRaises(ValueError):
+            Client("")
+
+    def test_make_order_empty_dishes(self):
+        client = Client("Анастасія")
+        factory = SimpleOrderFactory(notifier=None)
+        with self.assertRaises(ValueError):
+            client.make_order([], factory)

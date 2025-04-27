@@ -14,3 +14,8 @@ class TestNotifier(unittest.TestCase):
         dish = Dish(name="Піца Маргарита", price=210.0)
         order = Order(dishes=[dish], client=client, notifier=notifier)
         self.assertIsNone(notifier.notify(order))
+
+    def test_notify_invalid_order(self):
+        notifier = KitchenNotifier()
+        with self.assertRaises(ValueError):
+            notifier.notify(None)
