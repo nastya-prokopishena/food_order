@@ -1,4 +1,7 @@
 import unittest
+
+from mock.mock import MagicMock
+
 from models.dish import Dish
 from models.client import Client
 from services.kitchen_notifier import KitchenNotifier
@@ -7,6 +10,9 @@ from mock import Mock
 
 
 class TestOrder(unittest.TestCase):
+    def setUp(self):
+        self.mock_repo = MagicMock()
+        self.notifier = Mock(spec=KitchenNotifier)
 
     def test_place_order(self):
         notifier = Mock(spec=KitchenNotifier)
@@ -39,3 +45,22 @@ class TestOrder(unittest.TestCase):
         dish = Dish("Піца 4 сири", 290.0)
         with self.assertRaises(ValueError):
             Order(dishes=[dish], client=None, notifier=None)
+
+    def test_place_order_with_repository(self):
+        client = Client(name="Валерія")
+        dish = Dish(name="Піца 4 сири", price=290.0)
+        order = Order(
+            dishes=[dish],
+            client=client,
+            notifier=self.notifier,
+            order_repository=self.mock_repo
+        )
+        order.place_order()
+        self.notifier.notify.assert_called_once_with(order)
+        self.mock_repo.save_order.assert_called_once_with(order)
+
+    def test_order_without_repository(self):
+        client = Client(name="Валерія")
+        dish = Dish(name="Піца 4 сири", price=290.0)
+        order = Order(dishes=[dish], client=client, notifier=None)
+        order.place_order()

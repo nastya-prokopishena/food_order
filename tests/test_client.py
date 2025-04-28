@@ -1,8 +1,10 @@
 import unittest
+from mock.mock import MagicMock
 from models.client import Client
 from models.dish import Dish
 from services.simple_order_factory import SimpleOrderFactory
 from services.kitchen_notifier import KitchenNotifier
+
 
 class TestClient(unittest.TestCase):
     def test_client_name_update(self):
@@ -13,7 +15,8 @@ class TestClient(unittest.TestCase):
         client = Client(name="Анастасія")
         dish = Dish(name="Піца Маргарита", price=210.0)
         notifier = KitchenNotifier()
-        factory = SimpleOrderFactory(notifier=notifier)
+        mock_repo = MagicMock()
+        factory = SimpleOrderFactory(notifier=notifier, order_repository=mock_repo)
         order = client.make_order([dish], factory)
         self.assertIsNotNone(order)
         self.assertEqual(order.client.name, "Анастасія")

@@ -1,9 +1,8 @@
 from interfaces.notifier import Notifier
-from models.order import Order
 
 
 class KitchenNotifier(Notifier):
-    def notify(self, order: Order):
+    def notify(self, order):
         if order is None:
             raise ValueError("Order cannot be None")
 
