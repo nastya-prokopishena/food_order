@@ -187,3 +187,33 @@
 
 ## Оновлена UML-діаграма
 ![](food_order_after_added_patterns.drawio.png)
+
+### Зв'язки наслідування (трикутна стрілка)
+1. **SimpleOrderFactory → OrderFactory**: Клас SimpleOrderFactory реалізує інтерфейс OrderFactory
+2. **BulkOrderFactory → OrderFactory**: Клас BulkOrderFactory реалізує інтерфейс OrderFactory
+3. **KitchenNotifier → Notifier**: Клас KitchenNotifier реалізує інтерфейс Notifier
+
+### Зв'язки агрегації (пуста ромбовидна стрілка)
+1. **Menu ◇→ Dish**: Клас Menu містить колекцію об'єктів класу Dish, але не відповідає за їх життєвий цикл
+2. **Order ◇→ Dish**: Клас Order містить колекцію об'єктів класу Dish, але не відповідає за їх життєвий цикл
+3. **KitchenObserver ◇→ Notifier**: Клас KitchenObserver містить список спостерігачів, що є об'єктами інтерфейсу Notifier
+
+### Зв'язки композиції (заповнена ромбовидна стрілка)
+1. **Order ◆→ Client**: Клас Order містить об'єкт класу Client як свою частину і відповідає за його життєвий цикл
+2. **Order ◆→ Notifier**: Клас Order містить об'єкт інтерфейсу Notifier як свою частину
+
+### Зв'язки залежності (пунктирна стрілка)
+1. **Client --→ OrderFactory**: Клас Client використовує інтерфейс OrderFactory у методі make_order
+2. **KitchenNotifier --→ Notifier**: Клас KitchenNotifier реалізує інтерфейс Notifier (пунктирна стрілка наслідування)
+3. **SimpleOrderFactory --→ OrderFactory**: Клас SimpleOrderFactory реалізує інтерфейс OrderFactory (пунктирна стрілка наслідування)
+4. **BulkOrderFactory --→ OrderFactory**: Клас BulkOrderFactory реалізує інтерфейс OrderFactory (пунктирна стрілка наслідування)
+
+### Зв'язки асоціації (звичайна стрілка)
+1. **OrderRepository → Order**: Клас OrderRepository використовує клас Order для операцій збереження, запиту тощо
+2. **OrderRepository ↔ MongoDB**: Двостороння асоціація між OrderRepository та MongoDB, де OrderRepository використовує MongoDB для зберігання даних
+3. **Client → Order**: Клас Client створює об'єкти класу Order через метод make_order
+4. **KitchenObserver → KitchenNotifier**: Клас KitchenObserver асоціюється з KitchenNotifier для повідомлення про зміни
+
+### Зв'язки використання (Use)
+1. **Order → Notifier**: Клас Order використовує інтерфейс Notifier для сповіщень через метод notify
+
